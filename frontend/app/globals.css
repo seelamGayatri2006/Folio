@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-reading: "Source Serif 4", Georgia, serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ECEFE9;
+  color: #171E1B;
+}
+
+::selection {
+  background-color: #C79A3D;
+  color: #171E1B;
+}
+
+/* visible keyboard focus, per accessibility floor */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #37437F;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* -- Signature element: the book spine -- */
+.spine {
+  position: relative;
+  background: linear-gradient(180deg, #1F2A25 0%, #171E1B 100%);
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+  transition: transform 180ms ease;
+}
+
+.spine:hover {
+  transform: translateY(-6px);
+}
+
+.spine-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, #C79A3D 0%, #A87F2E 100%);
+  transition: height 400ms ease;
+}
+
+.spine-title {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.prose-lesson {
+  font-family: var(--font-reading);
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+
+.prose-lesson h1,
+.prose-lesson h2,
+.prose-lesson h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin-top: 1.75em;
+  margin-bottom: 0.6em;
+  color: #171E1B;
+}
+
+.prose-lesson p {
+  margin-bottom: 1.1em;
+  color: #2B342F;
+}
+
+.prose-lesson ul,
+.prose-lesson ol {
+  margin-bottom: 1.1em;
+  padding-left: 1.4em;
+}
+
+.prose-lesson li {
+  margin-bottom: 0.4em;
+}
+
+.prose-lesson code {
+  font-family: var(--font-mono);
+  background: #F2F0E8;
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
